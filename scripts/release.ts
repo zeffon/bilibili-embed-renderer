@@ -111,7 +111,7 @@ async function main(): Promise<void> {
   } else {
     console.log(
       colors.green(
-        '\nPushed, publishing should starts shortly on CI.\nhttps://github.com/zeffon/your_repo_name/actions/workflows/publish.yml'
+        '\nPushed, publishing should starts shortly on CI.\nhttps://github.com/zeffon/bilibili-embed-renderer/actions/workflows/publish.yml'
       )
     )
   }

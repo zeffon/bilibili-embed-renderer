@@ -1,5 +1,5 @@
 {
-  "name": "your_repo_name-monorepo",
+  "name": "bilibili-embed-renderer-monorepo",
   "private": true,
   "license": "MIT",
   "scripts": {
