@@ -53,7 +53,7 @@
   "packageManager": "pnpm@7.3.0",
   "pnpm": {
     "overrides": {
-      "project_name": "workspace:*"
+      "react-bilibili-embed-renderer": "workspace:*"
     }
   }
 }
