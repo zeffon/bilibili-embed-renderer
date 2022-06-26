@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "format": "prettier --write --cache .",
+    "format": "prettier --write .",
     "dev:tsc": "tsc -W",
     "build": "tsc --build",
     "release": "esno scripts/release.ts",
@@ -37,23 +37,13 @@
     "commit-msg": "pnpm exec esno scripts/verifyCommit.ts $1"
   },
   "lint-staged": {
-    "*": [
-      "prettier --write --cache --ignore-unknown"
-    ],
-    "packages/*/{src,types}/**/*.ts": [
-      "eslint --cache --fix"
-    ],
-    "packages/**/*.d.ts": [
-      "eslint --cache --fix"
-    ],
-    "playground/**/__tests__/**/*.ts": [
-      "eslint --cache --fix"
-    ]
+    "**/*": "prettier --write --ignore-unknown"
   },
   "packageManager": "pnpm@7.3.0",
   "pnpm": {
     "overrides": {
-      "react-bilibili-embed-renderer": "workspace:*"
+      "react-bilibili-embed-renderer": "workspace:*",
+      "vue-bilibili-embed-renderer": "workspace:*"
     }
   }
 }
