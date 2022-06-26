@@ -1,0 +1,28 @@
+.bilibili-iframe {
+  max-width: '100%';
+  max-height: '100%';
+  align-content: 'center';
+}
+
+@media screen and (max-width: 1200px) {
+  .bilibili-iframe {
+    height: 360px;
+  }
+}
+
+@media screen and (max-width: 922px) {
+  .bilibili-iframe {
+    height: 300px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .bilibili-iframe {
+    height: 240px;
+  }
+}
+
+.bilibili-iframe--wrapper {
+  font-size: 15px !important;
+  color: red !important;
+}

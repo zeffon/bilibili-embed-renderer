@@ -8,11 +8,7 @@ interface BilibiliProp {
   hasDanmaku?: boolean
   width?: number
   height?: number
-  aspectWidth?: number
-  aspectHeight?: number
   iframeClass?: string
-  playerClass?: string
-  wrapperClass?: string
 }
 
 const BilibiliEmbedRenderer = (props: BilibiliProp) => {
@@ -23,11 +19,7 @@ const BilibiliEmbedRenderer = (props: BilibiliProp) => {
   const hasDanmaku = props.hasDanmaku || false
   const width = props.width || 480
   const height = props.height || 360
-  const aspectWidth = props.aspectWidth || 16
-  const aspectHeight = props.aspectHeight || 9
   const iframeClassImp = props.iframeClass || ''
-  const playerClassImp = props.playerClass || ''
-  const wrapperClassImp = props.wrapperClass || ''
 
   const highQualityValue = highQuality ? 1 : 0
   const wideValue = isWide ? 1 : 0
@@ -39,7 +31,13 @@ const BilibiliEmbedRenderer = (props: BilibiliProp) => {
 
   return (
     <>
-      <iframe width={width} height={height} src={iframeSrc} />
+      <iframe
+        width={width}
+        height={height}
+        src={iframeSrc}
+        allowFullScreen={true}
+        className={`bilibili-iframe ${iframeClassImp}`}
+      />
     </>
   )
 }
