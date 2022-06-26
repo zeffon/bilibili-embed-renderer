@@ -44,10 +44,7 @@ export default {
     `
     ),
     copy({
-      targets: [
-        { src: 'src/bilibili-embed-renderer.css', dest: 'dist' },
-        { src: '../../LICENSE', dest: 'dist' }
-      ]
+      targets: [{ src: 'src/bilibili-embed-renderer.css', dest: 'dist' }]
     })
   ]
 }
