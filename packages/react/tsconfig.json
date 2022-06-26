@@ -7,7 +7,7 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "sourceMap": true,
-    "outDir": "build",
+    "outDir": "dist",
     "noImplicitAny": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
