@@ -1,18 +1,15 @@
 import React from 'react'
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import Layout from '@theme/Layout'
-import HomepageFeatures from '@site/src/components/HomepageFeatures'
+import BilibiliEmbedRenderer from 'react-bilibili-embed-renderer'
+import styles from './index.module.css'
+import 'react-bilibili-embed-renderer/dist/bilibili-embed-renderer.css'
 
 export default function Home(): JSX.Element {
-  const { siteConfig } = useDocusaurusContext()
   return (
-    <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
-    >
-      <main>
-        <HomepageFeatures />
-      </main>
+    <Layout>
+      <div className={styles['container']}>
+        <BilibiliEmbedRenderer aid="3787944" />
+      </div>
     </Layout>
   )
 }
