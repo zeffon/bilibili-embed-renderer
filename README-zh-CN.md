@@ -39,10 +39,23 @@ Language : [English](./README.md) | 简体中文
 
 2. 引入组件和样式
 
-   ```ts
-   import BilibiliEmbedRenderer from 'vue-bilibili-embed-renderer'
-   import 'vue-bilibili-embed-renderer/dist/bilibili-embed-renderer.css'
-   ```
+你可以单独使用组件或全局注册组件。
+
+```ts
+// 直接在vue文件引入使用
+import BilibiliEmbedRenderer from 'vue-bilibili-embed-renderer'
+import 'vue-bilibili-embed-renderer/dist/bilibili-embed-renderer.css'
+
+// 或者在`main.ts`全局注册该组件
+import { createApp } from 'vue'
+import App from './App.vue'
+import BilibiliEmbedRenderer from 'vue-bilibili-embed-renderer'
+import 'vue-bilibili-embed-renderer/dist/bilibili-embed-renderer.css'
+
+const app = createApp(App)
+app.component('BilibiliEmbedRenderer', BilibiliEmbedRenderer)
+app.mount('#app')
+```
 
 3. 使用组件
 

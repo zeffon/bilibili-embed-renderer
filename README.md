@@ -39,10 +39,23 @@ It is better to use Bilibili's embed renderer component for React or Vue applica
 
 2. import component and css
 
-   ```ts
-   import BilibiliEmbedRenderer from 'vue-bilibili-embed-renderer'
-   import 'vue-bilibili-embed-renderer/dist/bilibili-embed-renderer.css'
-   ```
+You can use components alone or global register components.
+
+```ts
+// use alone in single vue component
+import BilibiliEmbedRenderer from 'vue-bilibili-embed-renderer'
+import 'vue-bilibili-embed-renderer/dist/bilibili-embed-renderer.css'
+
+// or global register component in `main.ts`
+import { createApp } from 'vue'
+import App from './App.vue'
+import BilibiliEmbedRenderer from 'vue-bilibili-embed-renderer'
+import 'vue-bilibili-embed-renderer/dist/bilibili-embed-renderer.css'
+
+const app = createApp(App)
+app.component('BilibiliEmbedRenderer', BilibiliEmbedRenderer)
+app.mount('#app')
+```
 
 3. use component
 
