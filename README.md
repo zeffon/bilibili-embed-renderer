@@ -4,6 +4,13 @@ Language : English | [简体中文](./README-zh-CN.md)
 
 It is better to use Bilibili's embed renderer component for React or Vue applications.
 
+Compared with the official embed renderer, bilibili-embed-renderer has been optimized as follows:
+
+1. The player can be displayed in full screen
+2. Enable HD resolution by default
+3. Bullet Chatting is closed by default
+4. Customize the width and height, and make the mobile style compatible
+
 ## Usage
 
 ### in react usage
@@ -11,7 +18,11 @@ It is better to use Bilibili's embed renderer component for React or Vue applica
 1. install deps
 
    ```sh
+   $ npm install react-bilibili-embed-renderer
+   # or
    $ yarn install react-bilibili-embed-renderer
+   # or
+   $ pnpm install react-bilibili-embed-renderer
    ```
 
 2. import component and css
@@ -39,23 +50,23 @@ It is better to use Bilibili's embed renderer component for React or Vue applica
 
 2. import component and css
 
-You can use components alone or global register components.
+   You can use components alone or global register components.
 
-```ts
-// use alone in single vue component
-import BilibiliEmbedRenderer from 'vue-bilibili-embed-renderer'
-import 'vue-bilibili-embed-renderer/dist/bilibili-embed-renderer.css'
+   ```ts
+   // use alone in single vue component
+   import BilibiliEmbedRenderer from 'vue-bilibili-embed-renderer'
+   import 'vue-bilibili-embed-renderer/dist/bilibili-embed-renderer.css'
 
-// or global register component in `main.ts`
-import { createApp } from 'vue'
-import App from './App.vue'
-import BilibiliEmbedRenderer from 'vue-bilibili-embed-renderer'
-import 'vue-bilibili-embed-renderer/dist/bilibili-embed-renderer.css'
+   // or global register component in `main.ts`
+   import { createApp } from 'vue'
+   import App from './App.vue'
+   import BilibiliEmbedRenderer from 'vue-bilibili-embed-renderer'
+   import 'vue-bilibili-embed-renderer/dist/bilibili-embed-renderer.css'
 
-const app = createApp(App)
-app.component('BilibiliEmbedRenderer', BilibiliEmbedRenderer)
-app.mount('#app')
-```
+   const app = createApp(App)
+   app.component('BilibiliEmbedRenderer', BilibiliEmbedRenderer)
+   app.mount('#app')
+   ```
 
 3. use component
 
@@ -63,18 +74,33 @@ app.mount('#app')
    <BilibiliEmbedRenderer aid="3787944" />
    ```
 
-## Props
+## Parameters
 
-| 字段          | 是否必传 | 默认值  | 类型      | 描述                                                 |
-| :------------ | -------- | ------- | --------- | ---------------------------------------------------- |
-| `aid`         | true     |         | `String`  | 视频的 aid（可以在嵌入代码找到找到对应 aid）         |
-| `width`       | false    | `480`   | `Number`  | 视频窗口的宽度                                       |
-| `height`      | false    | `360`   | `Number`  | 视频窗口的高度                                       |
-| `page`        | false    | `1`     | `Number`  | 视频集合中第几个视频 （可以在嵌入代码找到对应 page） |
-| `isWide`      | false    | `true`  | `Boolean` | 是否显示宽屏或者小屏                                 |
-| `highQuality` | false    | `true`  | `Boolean` | 是否开启高清晰度（不开启默认最低清晰度）             |
-| `hasDanmaku`  | false    | `false` | `Boolean` | 是否开启弹幕                                         |
-| `iframeClass` | false    |         | `String`  | iframe 自定义 class                                  |
+| Parameters    | Require | Default | Type      | descript                                      |
+| :------------ | ------- | ------- | --------- | --------------------------------------------- |
+| `aid`         | true    |         | `String`  | video's aid                                   |
+| `width`       | false   | `480`   | `Number`  | The width of the video window                 |
+| `height`      | false   | `360`   | `Number`  | The height of the video window                |
+| `page`        | false   | `1`     | `Number`  | Sequence number in the video collection       |
+| `isWide`      | false   | `true`  | `Boolean` | Whether to display widescreen or small screen |
+| `highQuality` | false   | `true`  | `Boolean` | Whether to turn on high definition            |
+| `hasDanmaku`  | false   | `false` | `Boolean` | Whether to open the popup.                    |
+| `iframeClass` | false   |         | `String`  | Iframe constom class                          |
+
+> How to find parameters value?
+> Open the video you want to use on Bilibili. You should find the `share Button` and focus it, then click `嵌入代码`, finally you can get the following code.
+
+```html
+<iframe
+  src="//player.bilibili.com/player.html?aid=3787944&bvid=BV12s411X7z3&cid=6078845&page=1"
+  scrolling="no"
+  border="0"
+  frameborder="no"
+  framespacing="0"
+  allowfullscreen="true"
+>
+</iframe>
+```
 
 ## License
 

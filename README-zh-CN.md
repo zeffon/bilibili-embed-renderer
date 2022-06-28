@@ -4,6 +4,13 @@ Language : [English](./README.md) | 简体中文
 
 在 `React` 或者 `Vue` 中更加方便地使用哔哩哔哩的嵌入代码。
 
+与官方的嵌入代码相比较，bilibili-embed-renderer 做了如下优化：
+
+1. 可以全屏显示播放器
+2. 默认开启高清分辨率
+3. 默认关闭弹幕
+4. 自定义宽高，并且做了移动端样式兼容
+
 ## 使用
 
 ### react 版本
@@ -11,7 +18,11 @@ Language : [English](./README.md) | 简体中文
 1. 安装依赖
 
    ```sh
+   $ npm install react-bilibili-embed-renderer
+   # 或者
    $ yarn install react-bilibili-embed-renderer
+   # 或者
+   $ pnpm install react-bilibili-embed-renderer
    ```
 
 2. 引入组件和样式
@@ -75,6 +86,21 @@ app.mount('#app')
 | `highQuality` | false    | `true`  | `Boolean` | 是否开启高清晰度（不开启默认最低清晰度）             |
 | `hasDanmaku`  | false    | `false` | `Boolean` | 是否开启弹幕                                         |
 | `iframeClass` | false    |         | `String`  | iframe 自定义 class                                  |
+
+> 参数值如何获取
+> 打开你所需要使用的视频，找到分享按钮，点击里面的嵌入代码，你可以复制如下代码
+
+```html
+<iframe
+  src="//player.bilibili.com/player.html?aid=3787944&bvid=BV12s411X7z3&cid=6078845&page=1"
+  scrolling="no"
+  border="0"
+  frameborder="no"
+  framespacing="0"
+  allowfullscreen="true"
+>
+</iframe>
+```
 
 ## License
 
