@@ -39,7 +39,7 @@
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
   },
-  "packageManager": "pnpm@7.3.0",
+  "packageManager": "pnpm@7.4.0",
   "pnpm": {
     "overrides": {
       "react-bilibili-embed-renderer": "workspace:*",
