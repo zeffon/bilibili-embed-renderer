@@ -77,7 +77,7 @@ importers:
       typescript: ^4.5.4
       vite: ^2.9.9
       vue: ^3.2.25
-      vue-bilibili-embed-renderer: workspace:^0.0.2
+      vue-bilibili-embed-renderer: workspace:*
       vue-tsc: ^0.34.7
     dependencies:
       vue: 3.2.37
