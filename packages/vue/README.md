@@ -14,9 +14,22 @@ $ yarn install vue-bilibili-embed-renderer
 
 2. import component and css
 
+You can use components alone or global register components.
+
 ```ts
+// use alone in single vue component 单独使用
 import BilibiliEmbedRenderer from 'vue-bilibili-embed-renderer'
 import 'vue-bilibili-embed-renderer/dist/bilibili-embed-renderer.css'
+
+// or global register component in `main.ts` 全局注册
+import { createApp } from 'vue'
+import App from './App.vue'
+import BilibiliEmbedRenderer from 'vue-bilibili-embed-renderer'
+import 'vue-bilibili-embed-renderer/dist/bilibili-embed-renderer.css'
+
+const app = createApp(App)
+app.component('BilibiliEmbedRenderer', BilibiliEmbedRenderer)
+app.mount('#app')
 ```
 
 3. use component
@@ -25,7 +38,7 @@ import 'vue-bilibili-embed-renderer/dist/bilibili-embed-renderer.css'
 <BilibiliEmbedRenderer aid="3787944" />
 ```
 
-## Props
+## Parameters
 
 | 字段          | 是否必传 | 默认值  | 类型      | 描述                                                 |
 | :------------ | -------- | ------- | --------- | ---------------------------------------------------- |

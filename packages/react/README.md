@@ -25,7 +25,7 @@ import 'react-bilibili-embed-renderer/dist/bilibili-embed-renderer.css'
 <BilibiliEmbedRenderer aid="3787944" />
 ```
 
-## Props
+## Parameters
 
 | 字段          | 是否必传 | 默认值  | 类型      | 描述                                                 |
 | :------------ | -------- | ------- | --------- | ---------------------------------------------------- |

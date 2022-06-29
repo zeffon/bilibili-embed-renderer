@@ -1,6 +1,7 @@
 <template>
   <div>
     <BilibiliEmbedRenderer aid="3787944" :width="800" :height="600" />
+    <bilibili-embed aid="3787944" :width="800" :height="600" />
   </div>
 </template>
 
