@@ -202,22 +202,3 @@ export async function logRecentCommits(pkgName: string): Promise<void> {
   )
   console.log()
 }
-
-export async function updateTemplateVersions(): Promise<void> {
-  const viteVersion = (await fs.readJSON('../packages/vite/package.json')).version
-  if (/beta|alpha|rc/.test(viteVersion)) return
-
-  const dir = path.resolve(__dirname, '../packages/create-vite')
-
-  const templates = readdirSync(dir).filter((dir) => dir.startsWith('template-'))
-  for (const template of templates) {
-    const pkgPath = path.join(dir, template, `package.json`)
-    const pkg = require(pkgPath)
-    pkg.devDependencies.vite = `^` + viteVersion
-    if (template.startsWith('template-vue')) {
-      pkg.devDependencies['@vitejs/plugin-vue'] =
-        `^` + (await fs.readJSON('../packages/plugin-vue/package.json')).version
-    }
-    writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + '\n')
-  }
-}

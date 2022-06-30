@@ -58,7 +58,7 @@ async function main(): Promise<void> {
     throw new Error(`invalid target version: ${targetVersion}`)
   }
 
-  const tag = pkgName === 'project_name' ? `v${targetVersion}` : `${pkgName}@${targetVersion}`
+  const tag = pkgName === 'react' ? `v${targetVersion}` : `${pkgName}@${targetVersion}`
 
   if (targetVersion.includes('beta') && !args.tag) {
     args.tag = 'beta'
@@ -88,7 +88,7 @@ async function main(): Promise<void> {
     '--commit-path',
     '.'
   ]
-  if (pkgName !== 'project_name') changelogArgs.push('--lerna-package', 'plugin-vue')
+  if (pkgName !== 'react') changelogArgs.push('--lerna-package', 'plugin-vue')
   await run('npx', changelogArgs, { cwd: pkgDir })
 
   const { stdout } = await run('git', ['diff'], { stdio: 'pipe' })
