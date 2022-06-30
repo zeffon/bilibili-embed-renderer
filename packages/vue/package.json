@@ -1,6 +1,6 @@
 {
   "name": "vue-bilibili-embed-renderer",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "It is better to use Bilibili's embed renderer component for Vue applications",
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
