@@ -17,11 +17,9 @@ jobs:
       - name: Get pkgName for tag
         id: tag
         run: |
-          # matching react1.0.0 etc
-          if [[ $GITHUB_REF_NAME =~ ^react.+ ]]; then
-            pkgName="react"
-          else if [[ $GITHUB_REF_NAME =~ ^v.+ ]]; then
-            pkgName="vue"
+          # matching v2.0.0 / v2.0.0-beta.8 etc
+          if [[ $GITHUB_REF_NAME =~ ^v.+ ]]; then
+            pkgName="main_pkg"
           else
             # `%@*` truncates @ and version number from the right side.
             # https://stackoverflow.com/questions/9532654/expression-after-last-specific-character
