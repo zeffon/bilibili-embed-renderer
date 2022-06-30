@@ -3,7 +3,8 @@ name: Add GitHub Release Tag
 on:
   push:
     tags:
-      - "v*" # Push events to matching v*, i.e. v1.0, v20.15.10
+      - "react*"
+      - "vue*"
 
 # $GITHUB_REF_NAME - https://docs.github.com/en/actions/learn-github-actions/environment-variables#default-environment-variables
 
@@ -16,9 +17,11 @@ jobs:
       - name: Get pkgName for tag
         id: tag
         run: |
-          # matching v2.0.0 / v2.0.0-beta.8 etc
-          if [[ $GITHUB_REF_NAME =~ ^v.+ ]]; then
-            pkgName="project_name"
+          # matching react1.0.0 etc
+          if [[ $GITHUB_REF_NAME =~ ^react.+ ]]; then
+            pkgName="react"
+          else if [[ $GITHUB_REF_NAME =~ ^v.+ ]]; then
+            pkgName="vue"
           else
             # `%@*` truncates @ and version number from the right side.
             # https://stackoverflow.com/questions/9532654/expression-after-last-specific-character
