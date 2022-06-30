@@ -175,7 +175,7 @@ export async function publishPackage(pkdDir: string, tag?: string): Promise<void
 
 export async function getLatestTag(pkgName: string): Promise<string> {
   const tags = (await run('git', ['tag'], { stdio: 'pipe' })).stdout.split(/\n/).filter(Boolean)
-  const prefix = pkgName === 'vite' ? 'v' : `${pkgName}@`
+  const prefix = pkgName === 'no_main_pkg' ? 'v' : `${pkgName}@`
   return tags
     .filter((tag) => tag.startsWith(prefix))
     .sort()
