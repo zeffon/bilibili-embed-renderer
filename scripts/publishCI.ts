@@ -10,7 +10,7 @@ async function main() {
     throw new Error('No tag specified')
   }
 
-  let pkgName = 'react-bilibili-embed-renderer'
+  let pkgName = 'react'
   let version
 
   if (tag.includes('@')) [pkgName, version] = tag.split('@')
