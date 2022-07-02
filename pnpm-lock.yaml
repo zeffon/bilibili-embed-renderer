@@ -14,7 +14,6 @@ importers:
       '@types/prompts': ^2.4.0
       '@types/semver': ^7.3.10
       conventional-changelog-cli: ^2.2.2
-      esno: ^0.16.3
       execa: ^6.1.0
       fs-extra: ^10.1.0
       lint-staged: ^13.0.2
@@ -24,6 +23,7 @@ importers:
       prompts: ^2.4.2
       semver: ^7.3.7
       simple-git-hooks: ^2.8.0
+      tsx: ^3.6.0
       typescript: ^4.6.4
     devDependencies:
       '@types/fs-extra': 9.0.13
@@ -32,7 +32,6 @@ importers:
       '@types/prompts': 2.4.0
       '@types/semver': 7.3.10
       conventional-changelog-cli: 2.2.2
-      esno: 0.16.3
       execa: 6.1.0
       fs-extra: 10.1.0
       lint-staged: 13.0.3
@@ -42,6 +41,7 @@ importers:
       prompts: 2.4.2
       semver: 7.3.7
       simple-git-hooks: 2.8.0
+      tsx: 3.6.0
       typescript: 4.7.4
 
   packages/example/react-example:
@@ -2203,11 +2203,11 @@ packages:
       - webpack-cli
     dev: false
 
-  /@esbuild-kit/cjs-loader/2.2.1:
-    resolution: {integrity: sha512-pq2Z4DcqTBF7y1wQuIzFVqmHJVnmP6hgHEWN2ubPjeG7OzXMZ9NvozW+YA/MIeMdZWp1jcJ/EvXk2+mfEKoCDQ==}
+  /@esbuild-kit/cjs-loader/2.3.0:
+    resolution: {integrity: sha512-KInrVt8wlKLhWy7+y4a+E+0uBJoWgdx6Xupy+rrF4MFHA/dEt22ACvvChOZSyiqtQieYPtbPkVYSjbC7mOrFVw==}
     dependencies:
       '@esbuild-kit/core-utils': 2.0.2
-      get-tsconfig: 4.0.6
+      get-tsconfig: 4.1.0
     dev: true
 
   /@esbuild-kit/core-utils/2.0.2:
@@ -2217,11 +2217,11 @@ packages:
       source-map-support: 0.5.21
     dev: true
 
-  /@esbuild-kit/esm-loader/2.3.1:
-    resolution: {integrity: sha512-CC0H91Oa02cczLswEoiLowTzWxvnS3tIBGkQa1BnieFK7HHV4whrBFGRlUD9rMHfyyoO55IuOqNujycXX+gI8A==}
+  /@esbuild-kit/esm-loader/2.4.0:
+    resolution: {integrity: sha512-zS720jXh06nfg5yAzm6oob4sWN9VTP2E1SonhFgEb6zCBswa4S8fOQ/4Bksz1flDgn56NPqoTTDn2XmWRyMG9Q==}
     dependencies:
       '@esbuild-kit/core-utils': 2.0.2
-      get-tsconfig: 4.0.6
+      get-tsconfig: 4.1.0
     dev: true
 
   /@hapi/hoek/9.3.0:
@@ -5156,13 +5156,6 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /esno/0.16.3:
-    resolution: {integrity: sha512-6slSBEV1lMKcX13DBifvnDFpNno5WXhw4j/ff7RI0y51BZiDqEe5dNhhjhIQ3iCOQuzsm2MbVzmwqbN78BBhPg==}
-    hasBin: true
-    dependencies:
-      tsx: 3.6.0
-    dev: true
-
   /esprima/4.0.1:
     resolution: {integrity: sha512-eGuFFw7Upda+g4p+QHvnW0RyTX/SVeJBDM/gCtMARO0cLuT2HcEKnTPvhjV6aGeqrCB/sbNop0Kszm0jsaWU4A==}
     engines: {node: '>=4'}
@@ -5605,8 +5598,8 @@ packages:
     resolution: {integrity: sha512-ts6Wi+2j3jQjqi70w5AlN8DFnkSwC+MqmxEzdEALB2qXZYV3X/b1CTfgPLGJNMeAWxdPfU8FO1ms3NUfaHCPYg==}
     engines: {node: '>=10'}
 
-  /get-tsconfig/4.0.6:
-    resolution: {integrity: sha512-yK9g+lk9PSaYS4RM9jnlmFSyymNDdLaIk42h6uOO6DOvqKEpL4KhUAcI1/7/sWe8+FWZe1/EjFXFfvv6T+cgPA==}
+  /get-tsconfig/4.1.0:
+    resolution: {integrity: sha512-bhshxJhpfmeQ8x4fAvDqJV2VfGp5TfHdLpmBpNZZhMoVyfIrOippBW4mayC3DT9Sxuhcyl56Efw61qL28hG4EQ==}
     dev: true
 
   /git-raw-commits/2.0.11:
@@ -9235,9 +9228,9 @@ packages:
     resolution: {integrity: sha512-XzqSxPmyJnI7ZtEX/CLE/CSDkqbL7dK4jwtJRIZpV0EhCxWqtb1OqJPlUc4CVS3/MFdpt8ZxLpvPFohWRTHbzw==}
     hasBin: true
     dependencies:
-      '@esbuild-kit/cjs-loader': 2.2.1
+      '@esbuild-kit/cjs-loader': 2.3.0
       '@esbuild-kit/core-utils': 2.0.2
-      '@esbuild-kit/esm-loader': 2.3.1
+      '@esbuild-kit/esm-loader': 2.4.0
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
