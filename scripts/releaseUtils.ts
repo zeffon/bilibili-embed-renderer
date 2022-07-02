@@ -1,7 +1,7 @@
 /**
  * modified from https://github.com/vitejs/vite/blob/main/scripts/releaseUtils.ts
  */
-import { existsSync, readdirSync, writeFileSync } from 'node:fs'
+import { existsSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 import colors from 'picocolors'
 import type { Options as ExecaOptions, ExecaReturnValue } from 'execa'
