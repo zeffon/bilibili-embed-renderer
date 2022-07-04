@@ -9,8 +9,9 @@
     "postinstall": "simple-git-hooks",
     "format": "prettier --write --cache .",
     "typecheck": "tsc -p scripts --noEmit",
-    "dev": "pnpm -r --parallel --filter=./packages run dev",
-    "build": "pnpm -r --filter=./packages run build",
+    "dev": "pnpm -r --parallel --filter=./packages/* run dev",
+    "build": "pnpm -r --filter=./packages/* run build",
+    "docs-build": "pnpm -r --filter=./packages/example/* run build",
     "release": "tsx scripts/release.ts",
     "ci-publish": "tsx scripts/publishCI.ts"
   },
