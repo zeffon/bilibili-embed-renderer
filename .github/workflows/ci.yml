@@ -47,7 +47,7 @@ jobs:
         run: pnpm run build
 
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4s
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages
