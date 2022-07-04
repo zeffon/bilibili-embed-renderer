@@ -46,6 +46,14 @@ jobs:
       - name: Build
         run: pnpm run build
 
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4s
+        with:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: ./packages/example/react-example/build
+          BUILD_SCRIPT: npm cache clear --force && npm install && npm run build
+
   lint:
     timeout-minutes: 10
     runs-on: ubuntu-latest
