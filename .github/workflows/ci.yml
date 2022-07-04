@@ -51,6 +51,10 @@ jobs:
     runs-on: ubuntu-latest
     name: "Lint: node-16, ubuntu-latest"
     steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
       - name: Install pnpm
         uses: pnpm/action-setup@v2.2.2
 
