@@ -49,7 +49,7 @@ jobs:
   deploy:
     timeout-minutes: 10
     runs-on: ubuntu-latest
-    name: "Lint: node-16, ubuntu-latest"
+    name: "Deploy: node-16, ubuntu-latest"
     steps:
       - uses: actions/checkout@v3
         with:
@@ -66,6 +66,9 @@ jobs:
 
       - name: Install deps
         run: pnpm install
+
+      - name: Build
+        run: pnpm run build
 
       - name: Build docs
         run: pnpm run docs-build
