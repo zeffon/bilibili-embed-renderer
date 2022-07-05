@@ -4,6 +4,8 @@ Language : English | [简体中文](./README-zh-CN.md)
 
 It is better to use Bilibili's embed renderer component for React or Vue applications.
 
+Please look [Demo](https://zeffon.github.io/bilibili-embed-renderer/)
+
 Compared with the official embed renderer, bilibili-embed-renderer has been optimized as follows:
 
 1. The player can be displayed in full screen

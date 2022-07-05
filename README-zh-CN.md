@@ -4,6 +4,8 @@ Language : [English](./README.md) | 简体中文
 
 在 `React` 或者 `Vue` 中更加方便地使用哔哩哔哩的嵌入代码。
 
+请查看[演示](https://zeffon.github.io/bilibili-embed-renderer/)
+
 与官方的嵌入代码相比较，bilibili-embed-renderer 做了如下优化：
 
 1. 可以全屏显示播放器
