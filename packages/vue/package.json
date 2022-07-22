@@ -4,6 +4,12 @@
   "description": "It is better to use Bilibili's embed renderer component for Vue applications",
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
+  "files": [
+    "dist",
+    "package.json",
+    "LICENSE",
+    "README.md"
+  ],
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "vite",

@@ -4,6 +4,12 @@
   "description": "It is better to use Bilibili's embed renderer component for React applications",
   "main": "dist/index.jsx",
   "module": "dist/index.es.jsx",
+  "files": [
+    "dist",
+    "package.json",
+    "LICENSE",
+    "README.md"
+  ],
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "npx rollup -c"
