@@ -1,6 +1,6 @@
 {
   "name": "react-bilibili-embed-renderer",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "It is better to use Bilibili's embed renderer component for React applications",
   "main": "dist/index.jsx",
   "module": "dist/index.es.jsx",

@@ -1,3 +1,15 @@
+## 1.1.0 (2022-07-23)
+
+* feat: iframe of width and height support string ([078c4bb](https://github.com/zeffon/bilibili-embed-renderer/commit/078c4bb))
+* release: react@1.0.0 ([2450775](https://github.com/zeffon/bilibili-embed-renderer/commit/2450775))
+* release: react@1.0.1 ([f46f693](https://github.com/zeffon/bilibili-embed-renderer/commit/f46f693))
+* release: react@1.0.2 ([428cc9a](https://github.com/zeffon/bilibili-embed-renderer/commit/428cc9a))
+* chore: filter publish file ([5b32cc0](https://github.com/zeffon/bilibili-embed-renderer/commit/5b32cc0))
+* chore: react build miss declaration ([7b166c3](https://github.com/zeffon/bilibili-embed-renderer/commit/7b166c3))
+* fix: undo react version and fix release pkg ([2e36007](https://github.com/zeffon/bilibili-embed-renderer/commit/2e36007))
+
+
+
 ## <small>1.0.2 (2022-07-22)</small>
 
 * chore: filter publish file ([5b32cc0](https://github.com/zeffon/bilibili-embed-renderer/commit/5b32cc0))
