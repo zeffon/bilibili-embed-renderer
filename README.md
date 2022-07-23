@@ -20,11 +20,11 @@ Compared with the official embed renderer, bilibili-embed-renderer has been opti
 1. install deps
 
    ```sh
-   $ npm install react-bilibili-embed-renderer
+   $ npm install react-bilibili-embed-renderer -S
    # or
    $ yarn install react-bilibili-embed-renderer
    # or
-   $ pnpm install react-bilibili-embed-renderer
+   $ pnpm install react-bilibili-embed-renderer -S
    ```
 
 2. import component and css
@@ -47,7 +47,11 @@ Compared with the official embed renderer, bilibili-embed-renderer has been opti
 1. install deps
 
    ```sh
+   $ npm install vue-bilibili-embed-renderer -S
+   # or
    $ yarn install vue-bilibili-embed-renderer
+   # or
+   $ pnpm install vue-bilibili-embed-renderer -S
    ```
 
 2. import component and css
