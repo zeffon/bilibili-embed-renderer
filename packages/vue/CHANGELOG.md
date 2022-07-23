@@ -1,3 +1,12 @@
+## 1.1.0 (2022-07-23)
+
+* feat: iframe of width and height support string ([078c4bb](https://github.com/zeffon/bilibili-embed-renderer/commit/078c4bb))
+* release: vue@1.0.0 ([0ac49b7](https://github.com/zeffon/bilibili-embed-renderer/commit/0ac49b7))
+* release: vue@1.0.1 ([2c717c9](https://github.com/zeffon/bilibili-embed-renderer/commit/2c717c9))
+* chore: filter publish file ([5b32cc0](https://github.com/zeffon/bilibili-embed-renderer/commit/5b32cc0))
+
+
+
 ## <small>1.0.1 (2022-07-22)</small>
 
 * chore: filter publish file ([5b32cc0](https://github.com/zeffon/bilibili-embed-renderer/commit/5b32cc0))
