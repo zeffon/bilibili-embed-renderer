@@ -6,8 +6,8 @@ interface BilibiliProp {
   isWide?: boolean
   highQuality?: boolean
   hasDanmaku?: boolean
-  width?: number
-  height?: number
+  width?: string | number
+  height?: string | number
   iframeClass?: string
 }
 

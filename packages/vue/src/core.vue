@@ -31,11 +31,11 @@ let props = defineProps({
     require: false
   },
   width: {
-    type: Number,
+    type: String || Number,
     require: false
   },
   height: {
-    type: Number,
+    type: String || Number,
     require: false
   },
   iframeClass: {
