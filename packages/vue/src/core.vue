@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import { calcHeight } from './helper'
+import { calcHeight, isBrowser } from './helper'
 
 let props = defineProps({
   aid: {
@@ -60,9 +60,8 @@ const isWide = props.isWide || true
 const highQuality = props.highQuality || true
 const hasDanmaku = props.hasDanmaku || false
 
-const lowMedia = window.matchMedia('(max-width:1280px)').matches
-const defaultAspectWidth = lowMedia ? 16 : 4
-const defaultAspectHeight = lowMedia ? 9 : 3
+const defaultAspectWidth = isBrowser ? 4 : 16
+const defaultAspectHeight = isBrowser ? 3 : 9
 const aspectWidth = props.aspectWidth || defaultAspectWidth
 const aspectHeight = props.aspectHeight || defaultAspectHeight
 const width = props.width || 480
