@@ -7,7 +7,6 @@
 
 <script setup lang="ts">
 import BilibiliEmbedRenderer from 'vue-bilibili-embed-renderer'
-import 'vue-bilibili-embed-renderer/dist/bilibili-embed-renderer.css'
 </script>
 
 <style>

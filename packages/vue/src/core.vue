@@ -4,7 +4,7 @@
     :height="height"
     :src="iframeSrc"
     :allowFullScreen="true"
-    :class="`bilibili-iframe ${iframeClassImp}`"
+    :class="{ iframeClassImp }"
   ></iframe>
 </template>
 
@@ -69,7 +69,6 @@ const width = props.width || 480
 const height = calcHeight(width, props.height, aspectWidth, aspectHeight)
 
 const iframeClassImp = props.iframeClass || ''
-
 const highQualityValue = highQuality ? 1 : 0
 const wideValue = isWide ? 1 : 0
 const danmakuValue = hasDanmaku ? 1 : 0

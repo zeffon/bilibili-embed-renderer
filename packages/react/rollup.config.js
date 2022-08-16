@@ -2,7 +2,6 @@ import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import typescript from 'rollup-plugin-typescript2'
-import copy from 'rollup-plugin-copy'
 import banner2 from 'rollup-plugin-banner2'
 
 import packageJson from './package.json'
@@ -42,9 +41,6 @@ export default {
 *  Author site: ${author.url}
 */
     `
-    ),
-    copy({
-      targets: [{ src: 'src/bilibili-embed-renderer.css', dest: 'dist' }]
-    })
+    )
   ]
 }

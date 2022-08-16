@@ -44,7 +44,7 @@ const BilibiliEmbedRenderer = (props: BilibiliProp) => {
         height={height}
         src={iframeSrc}
         allowFullScreen={true}
-        className={`bilibili-iframe ${iframeClassImp}`}
+        className={iframeClassImp}
       />
     </>
   )

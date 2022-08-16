@@ -7,7 +7,6 @@ export default defineConfig({
   plugins: [
     vue(),
     copy({
-      targets: [{ src: 'src/bilibili-embed-renderer.css', dest: 'dist' }],
       hook: 'writeBundle',
       verbose: true
     })
