@@ -9,6 +9,8 @@
 </template>
 
 <script setup lang="ts">
+import { calcHeight } from './helper'
+
 let props = defineProps({
   aid: {
     type: String,
@@ -30,6 +32,14 @@ let props = defineProps({
     type: Boolean,
     require: false
   },
+  aspectWidth: {
+    type: Number,
+    require: false
+  },
+  aspectHeight: {
+    type: Number,
+    require: false
+  },
   width: {
     type: String || Number,
     require: false
@@ -49,8 +59,15 @@ const page = props.page || 1
 const isWide = props.isWide || true
 const highQuality = props.highQuality || true
 const hasDanmaku = props.hasDanmaku || false
+
+const lowMedia = window.matchMedia('(max-width:1280px)').matches
+const defaultAspectWidth = lowMedia ? 16 : 4
+const defaultAspectHeight = lowMedia ? 9 : 3
+const aspectWidth = props.aspectWidth || defaultAspectWidth
+const aspectHeight = props.aspectHeight || defaultAspectHeight
 const width = props.width || 480
-const height = props.height || 360
+const height = calcHeight(width, props.height, aspectWidth, aspectHeight)
+
 const iframeClassImp = props.iframeClass || ''
 
 const highQualityValue = highQuality ? 1 : 0
