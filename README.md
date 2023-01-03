@@ -82,18 +82,18 @@ Compared with the official embed renderer, bilibili-embed-renderer has been opti
 
 ## Parameters
 
-| Parameters     | Require | Default   | Type      | descript                                        |
-| :------------- | ------- | --------- | --------- | ----------------------------------------------- | ------------------------------ |
-| `aid`          | true    |           | `String`  | video's aid                                     |
-| `aspectWidth`  | false   | `4`or`16` | `Number`  | Aspect ratio width (`16` below 1280px (mobile)) |
-| `aspectHeight` | false   | `3`or`9`  | `Number`  | Aspect ratio height (`9` below 1280px (mobile)) |
-| `width`        | false   | `480`     | `Number   | String`                                         | The width of the video window  |
-| `height`       | false   | `360`     | `Number   | String`                                         | The height of the video window |
-| `page`         | false   | `1`       | `Number`  | Sequence number in the video collection         |
-| `isWide`       | false   | `true`    | `Boolean` | Whether to display widescreen or small screen   |
-| `highQuality`  | false   | `true`    | `Boolean` | Whether to turn on high definition              |
-| `hasDanmaku`   | false   | `false`   | `Boolean` | Whether to open the popup.                      |
-| `iframeClass`  | false   |           | `String`  | Iframe constom class                            |
+| Parameters     | Require | Default   | Type      | descript                                           |
+| :------------- | ------- | --------- | --------- | -------------------------------------------------- |
+| `aid`          | true    |           | `String`  | video's aid                                        |
+| `aspectWidth`  | false   | `4`or`16` | `Number`  | Aspect ratio width (pc is `4`, and mobile is `16`) |
+| `aspectHeight` | false   | `3`or`9`  | `Number`  | Aspect ratio height (pc is `3`, and mobile is `9`) |
+| `width`        | false   | `480`     | `Number`  | The width of the video window                      |
+| `height`       | false   | `360`     | `Number`  | The height of the video window                     |
+| `page`         | false   | `1`       | `Number`  | Sequence number in the video collection            |
+| `isWide`       | false   | `true`    | `Boolean` | Whether to display widescreen or small screen      |
+| `highQuality`  | false   | `true`    | `Boolean` | Whether to turn on high definition                 |
+| `hasDanmaku`   | false   | `false`   | `Boolean` | Whether to open the popup.                         |
+| `iframeClass`  | false   |           | `String`  | Iframe constom class                               |
 
 > How to find parameters value?
 > Open the video you want to use on Bilibili. You should find the `share Button` and focus it, then click `嵌入代码`, finally you can get the following code.
