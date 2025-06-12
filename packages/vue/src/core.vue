@@ -4,75 +4,86 @@
     :height="height"
     :src="iframeSrc"
     :allowFullScreen="true"
-    :class="{ iframeClassImp }"
+    :class="finalClassName"
+    v-bind="$attrs"
   ></iframe>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { calcHeight, isBrowser } from './helper'
 
-let props = defineProps({
-  aid: {
-    type: String,
-    require: true
-  },
-  page: {
-    type: Number,
-    require: false
-  },
-  isWide: {
-    type: Boolean,
-    require: false
-  },
-  highQuality: {
-    type: Boolean,
-    require: false
-  },
-  hasDanmaku: {
-    type: Boolean,
-    require: false
-  },
-  aspectWidth: {
-    type: Number,
-    require: false
-  },
-  aspectHeight: {
-    type: Number,
-    require: false
-  },
-  width: {
-    type: String || Number,
-    require: false
-  },
-  height: {
-    type: String || Number,
-    require: false
-  },
-  iframeClass: {
-    type: String,
-    require: false
-  }
+interface Props {
+  aid?: string
+  bvid?: string
+  page?: number
+  isWide?: boolean
+  highQuality?: boolean
+  hasDanmaku?: boolean
+  aspectWidth?: number
+  aspectHeight?: number
+  width?: string | number
+  height?: string | number
+  iframeClass?: string
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  page: 1,
+  isWide: true,
+  highQuality: true,
+  hasDanmaku: false,
+  width: 480,
+  iframeClass: ''
 })
 
-const aid = props.aid
-const page = props.page || 1
-const isWide = props.isWide || true
-const highQuality = props.highQuality || true
-const hasDanmaku = props.hasDanmaku || false
+// Validate that either aid or bvid is provided
+if (!props.aid && !props.bvid) {
+  throw new Error('Either aid or bvid must be provided')
+}
 
 const defaultAspectWidth = isBrowser ? 4 : 16
 const defaultAspectHeight = isBrowser ? 3 : 9
-const aspectWidth = props.aspectWidth || defaultAspectWidth
-const aspectHeight = props.aspectHeight || defaultAspectHeight
-const width = props.width || 480
-const height = calcHeight(width, props.height, aspectWidth, aspectHeight)
+const finalAspectWidth = props.aspectWidth || defaultAspectWidth
+const finalAspectHeight = props.aspectHeight || defaultAspectHeight
+const height = calcHeight(props.width, props.height, finalAspectWidth, finalAspectHeight)
 
-const iframeClassImp = props.iframeClass || ''
-const highQualityValue = highQuality ? 1 : 0
-const wideValue = isWide ? 1 : 0
-const danmakuValue = hasDanmaku ? 1 : 0
+const highQualityValue = props.highQuality ? 1 : 0
+const wideValue = props.isWide ? 1 : 0
+const danmakuValue = props.hasDanmaku ? 1 : 0
 
 const bilibiliUrl = '//player.bilibili.com/player.html'
 
-const iframeSrc = `${bilibiliUrl}?aid=${aid}&page=${page}&high_quality=${highQualityValue}&as_wide=${wideValue}&danmaku=${danmakuValue}`
+// Build iframe src with either aid or bvid (bvid takes precedence)
+const iframeSrc = computed(() => {
+  let src = `${bilibiliUrl}?`
+  if (props.bvid) {
+    src += `bvid=${props.bvid}`
+  } else {
+    src += `aid=${props.aid}`
+  }
+  src += `&page=${props.page}&high_quality=${highQualityValue}&as_wide=${wideValue}&danmaku=${danmakuValue}`
+  return src
+})
+
+// Combine iframeClass with any additional classes from $attrs
+const finalClassName = computed(() => {
+  const classes = [props.iframeClass]
+  if (typeof $attrs.class === 'string') {
+    classes.push($attrs.class)
+  } else if (Array.isArray($attrs.class)) {
+    classes.push(...$attrs.class)
+  } else if ($attrs.class && typeof $attrs.class === 'object') {
+    Object.keys($attrs.class).forEach(key => {
+      if ($attrs.class[key]) classes.push(key)
+    })
+  }
+  return classes.filter(Boolean).join(' ') || undefined
+})
+
+const { width } = props
+
+// Make sure $attrs are passed through (excluding class since we handle it separately)
+defineOptions({
+  inheritAttrs: false
+})
 </script>
