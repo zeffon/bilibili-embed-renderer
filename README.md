@@ -38,6 +38,8 @@ Compared with the official embed renderer, bilibili-embed-renderer has been opti
 
    ```tsx
    <BilibiliEmbedRenderer aid="3787944" />
+   <!-- or using bvid (preferred) -->
+   <BilibiliEmbedRenderer bvid="BV1YRuDeKEZg" />
    ```
 
 ### in vue usage
@@ -78,13 +80,16 @@ Compared with the official embed renderer, bilibili-embed-renderer has been opti
 
    ```tsx
    <BilibiliEmbedRenderer aid="3787944" />
+   <!-- or using bvid (preferred) -->
+   <BilibiliEmbedRenderer bvid="BV1YRuDeKEZg" />
    ```
 
 ## Parameters
 
 | Parameters     | Require | Default   | Type      | descript                                           |
 | :------------- | ------- | --------- | --------- | -------------------------------------------------- |
-| `aid`          | true    |           | `String`  | video's aid                                        |
+| `aid`          | false*  |           | `String`  | video's aid (either aid or bvid is required)       |
+| `bvid`         | false*  |           | `String`  | video's bvid (preferred, either aid or bvid is required) |
 | `aspectWidth`  | false   | `4`or`16` | `Number`  | Aspect ratio width (pc is `4`, and mobile is `16`) |
 | `aspectHeight` | false   | `3`or`9`  | `Number`  | Aspect ratio height (pc is `3`, and mobile is `9`) |
 | `width`        | false   | `480`     | `Number`  | The width of the video window                      |
@@ -95,8 +100,12 @@ Compared with the official embed renderer, bilibili-embed-renderer has been opti
 | `hasDanmaku`   | false   | `false`   | `Boolean` | Whether to open the popup.                         |
 | `iframeClass`  | false   |           | `String`  | Iframe constom class                               |
 
+*Either `aid` or `bvid` must be provided. `bvid` is preferred as it's more user-friendly and stable.
+
 > How to find parameters value?
-> Open the video you want to use on Bilibili. You should find the `share Button` and focus it, then click `嵌入代码`, finally you can get the following code.
+
+### Method 1: Using Bilibili's embed code (easiest)
+Open the video you want to use on Bilibili. You should find the `share Button` and focus it, then click `嵌入代码`, finally you can get the following code:
 
 ```html
 <iframe
@@ -109,6 +118,35 @@ Compared with the official embed renderer, bilibili-embed-renderer has been opti
 >
 </iframe>
 ```
+
+### Method 2: Using the Bilibili API to get aid from bvid
+If you have a `bvid` (which is more user-friendly and visible in the URL), you can use it directly in the component. However, if you need to get the `aid` for other purposes, you can use the Bilibili API:
+
+**API Endpoint:** `https://api.bilibili.com/x/web-interface/view?bvid={BVID}`
+
+**Example:**
+```
+https://api.bilibili.com/x/web-interface/view?bvid=BV1YRuDeKEZg
+```
+
+This API returns video information including the `aid`. The response structure looks like:
+```json
+{
+  "code": 0,
+  "message": "0",
+  "data": {
+    "bvid": "BV1YRuDeKEZg",
+    "aid": 112478086563329,
+    "title": "...",
+    // ... other video data
+  }
+}
+```
+
+**Note:** `bvid` is preferred over `aid` because:
+- It's more stable and doesn't change
+- It's visible in the video URL (e.g., `https://www.bilibili.com/video/BV1YRuDeKEZg`)
+- It's more user-friendly to work with
 
 ## License
 
