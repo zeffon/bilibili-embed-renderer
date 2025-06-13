@@ -58,6 +58,7 @@
     "css-loader": "^6.7.1",
     "react": "*",
     "react-dom": "*",
+    "rollup": "^2.75.0",
     "rollup-plugin-banner2": "^1.2.2",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
