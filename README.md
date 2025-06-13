@@ -86,25 +86,26 @@ Compared with the official embed renderer, bilibili-embed-renderer has been opti
 
 ## Parameters
 
-| Parameters     | Require | Default   | Type      | descript                                           |
-| :------------- | ------- | --------- | --------- | -------------------------------------------------- |
-| `aid`          | false*  |           | `String`  | video's aid (either aid or bvid is required)       |
-| `bvid`         | false*  |           | `String`  | video's bvid (preferred, either aid or bvid is required) |
-| `aspectWidth`  | false   | `4`or`16` | `Number`  | Aspect ratio width (pc is `4`, and mobile is `16`) |
-| `aspectHeight` | false   | `3`or`9`  | `Number`  | Aspect ratio height (pc is `3`, and mobile is `9`) |
-| `width`        | false   | `480`     | `Number`  | The width of the video window                      |
-| `height`       | false   | `360`     | `Number`  | The height of the video window                     |
-| `page`         | false   | `1`       | `Number`  | Sequence number in the video collection            |
-| `isWide`       | false   | `true`    | `Boolean` | Whether to display widescreen or small screen      |
-| `highQuality`  | false   | `true`    | `Boolean` | Whether to turn on high definition                 |
-| `hasDanmaku`   | false   | `false`   | `Boolean` | Whether to open the popup.                         |
-| `iframeClass`  | false   |           | `String`  | Iframe constom class                               |
+| Parameters     | Require | Default   | Type      | descript                                                 |
+| :------------- | ------- | --------- | --------- | -------------------------------------------------------- |
+| `aid`          | false\* |           | `String`  | video's aid (either aid or bvid is required)             |
+| `bvid`         | false\* |           | `String`  | video's bvid (preferred, either aid or bvid is required) |
+| `aspectWidth`  | false   | `4`or`16` | `Number`  | Aspect ratio width (pc is `4`, and mobile is `16`)       |
+| `aspectHeight` | false   | `3`or`9`  | `Number`  | Aspect ratio height (pc is `3`, and mobile is `9`)       |
+| `width`        | false   | `480`     | `Number`  | The width of the video window                            |
+| `height`       | false   | `360`     | `Number`  | The height of the video window                           |
+| `page`         | false   | `1`       | `Number`  | Sequence number in the video collection                  |
+| `isWide`       | false   | `true`    | `Boolean` | Whether to display widescreen or small screen            |
+| `highQuality`  | false   | `true`    | `Boolean` | Whether to turn on high definition                       |
+| `hasDanmaku`   | false   | `false`   | `Boolean` | Whether to open the popup.                               |
+| `iframeClass`  | false   |           | `String`  | Iframe constom class                                     |
 
-*Either `aid` or `bvid` must be provided. `bvid` is preferred as it's more user-friendly and stable.
+\*Either `aid` or `bvid` must be provided. `bvid` is preferred as it's more user-friendly and stable.
 
 > How to find parameters value?
 
 ### Method 1: Using Bilibili's embed code (easiest)
+
 Open the video you want to use on Bilibili. You should find the `share Button` and focus it, then click `嵌入代码`, finally you can get the following code:
 
 ```html
@@ -120,16 +121,19 @@ Open the video you want to use on Bilibili. You should find the `share Button` a
 ```
 
 ### Method 2: Using the Bilibili API to get aid from bvid
+
 If you have a `bvid` (which is more user-friendly and visible in the URL), you can use it directly in the component. However, if you need to get the `aid` for other purposes, you can use the Bilibili API:
 
 **API Endpoint:** `https://api.bilibili.com/x/web-interface/view?bvid={BVID}`
 
 **Example:**
+
 ```
 https://api.bilibili.com/x/web-interface/view?bvid=BV1YRuDeKEZg
 ```
 
 This API returns video information including the `aid`. The response structure looks like:
+
 ```json
 {
   "code": 0,
@@ -137,13 +141,14 @@ This API returns video information including the `aid`. The response structure l
   "data": {
     "bvid": "BV1YRuDeKEZg",
     "aid": 112478086563329,
-    "title": "...",
+    "title": "..."
     // ... other video data
   }
 }
 ```
 
 **Note:** `bvid` is preferred over `aid` because:
+
 - It's more stable and doesn't change
 - It's visible in the video URL (e.g., `https://www.bilibili.com/video/BV1YRuDeKEZg`)
 - It's more user-friendly to work with

@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, useAttrs } from 'vue'
 import { calcHeight, isBrowser } from './helper'
 
 interface Props {
@@ -66,15 +66,17 @@ const iframeSrc = computed(() => {
 })
 
 // Combine iframeClass with any additional classes from $attrs
+const attrs = useAttrs()
 const finalClassName = computed(() => {
   const classes = [props.iframeClass]
-  if (typeof $attrs.class === 'string') {
-    classes.push($attrs.class)
-  } else if (Array.isArray($attrs.class)) {
-    classes.push(...$attrs.class)
-  } else if ($attrs.class && typeof $attrs.class === 'object') {
-    Object.keys($attrs.class).forEach(key => {
-      if ($attrs.class[key]) classes.push(key)
+  if (typeof attrs.class === 'string') {
+    classes.push(attrs.class)
+  } else if (Array.isArray(attrs.class)) {
+    classes.push(...attrs.class)
+  } else if (attrs.class && typeof attrs.class === 'object') {
+    const classObj = attrs.class as Record<string, boolean>
+    Object.keys(classObj).forEach((key) => {
+      if (classObj[key]) classes.push(key)
     })
   }
   return classes.filter(Boolean).join(' ') || undefined
@@ -86,4 +88,7 @@ const { width } = props
 defineOptions({
   inheritAttrs: false
 })
+
+// Export component props for type checking
+export type { Props as BilibiliEmbedRendererProps }
 </script>

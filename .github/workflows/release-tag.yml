@@ -12,10 +12,10 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Get pkgName for tag
-        id: tag
+        id: Tag
         run: |
           # matching v2.0.0 / v2.0.0-beta.8 etc
           if [[ $GITHUB_REF_NAME =~ ^v.+ ]]; then
@@ -26,7 +26,7 @@ jobs:
             pkgName=${GITHUB_REF_NAME%@*}
           fi
 
-          echo "::set-output name=pkgName::$pkgName"
+          echo "pkgName=$pkgName" >> $GITHUB_OUTPUT
 
       - name: Create Release for Tag
         id: release_tag

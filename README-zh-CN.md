@@ -79,25 +79,26 @@ app.mount('#app')
 
 ## 参数
 
-| 字段           | 是否必传 | 默认值    | 类型               | 描述                                                 |
-| :------------- | -------- | --------- | ------------------ | ---------------------------------------------------- |
-| `aid`          | false*   |           | `String`           | 视频的 aid（aid 或 bvid 必须提供其中一个）           |
-| `bvid`         | false*   |           | `String`           | 视频的 bvid（推荐使用，aid 或 bvid 必须提供其中一个） |
-| `aspectWidth`  | false    | `4`或`16` | `Number`           | 宽高比的宽值(PC 端设备为`4`，移动端设备为`16`)       |
-| `aspectHeight` | false    | `3`或`9`  | `Number`           | 宽高比的高值(PC 端设备为`3`，移动端设备为`9`)        |
-| `width`        | false    | `480`     | `Number`或`String` | 视频窗口的宽度                                       |
-| `height`       | false    | `360`     | `Number`或`String` | 视频窗口的高度(**不传时会根据宽高比自动计算数值**)   |
-| `page`         | false    | `1`       | `Number`           | 视频集合中第几个视频 （可以在嵌入代码找到对应 page） |
-| `isWide`       | false    | `true`    | `Boolean`          | 是否显示宽屏或者小屏                                 |
-| `highQuality`  | false    | `true`    | `Boolean`          | 是否开启高清晰度（不开启默认最低清晰度）             |
-| `hasDanmaku`   | false    | `false`   | `Boolean`          | 是否开启弹幕                                         |
-| `iframeClass`  | false    |           | `String`           | iframe 自定义 class                                  |
+| 字段           | 是否必传 | 默认值    | 类型               | 描述                                                  |
+| :------------- | -------- | --------- | ------------------ | ----------------------------------------------------- |
+| `aid`          | false\*  |           | `String`           | 视频的 aid（aid 或 bvid 必须提供其中一个）            |
+| `bvid`         | false\*  |           | `String`           | 视频的 bvid（推荐使用，aid 或 bvid 必须提供其中一个） |
+| `aspectWidth`  | false    | `4`或`16` | `Number`           | 宽高比的宽值(PC 端设备为`4`，移动端设备为`16`)        |
+| `aspectHeight` | false    | `3`或`9`  | `Number`           | 宽高比的高值(PC 端设备为`3`，移动端设备为`9`)         |
+| `width`        | false    | `480`     | `Number`或`String` | 视频窗口的宽度                                        |
+| `height`       | false    | `360`     | `Number`或`String` | 视频窗口的高度(**不传时会根据宽高比自动计算数值**)    |
+| `page`         | false    | `1`       | `Number`           | 视频集合中第几个视频 （可以在嵌入代码找到对应 page）  |
+| `isWide`       | false    | `true`    | `Boolean`          | 是否显示宽屏或者小屏                                  |
+| `highQuality`  | false    | `true`    | `Boolean`          | 是否开启高清晰度（不开启默认最低清晰度）              |
+| `hasDanmaku`   | false    | `false`   | `Boolean`          | 是否开启弹幕                                          |
+| `iframeClass`  | false    |           | `String`           | iframe 自定义 class                                   |
 
-*`aid` 或 `bvid` 必须提供其中一个。推荐使用 `bvid`，因为它更加用户友好且稳定。
+\*`aid` 或 `bvid` 必须提供其中一个。推荐使用 `bvid`，因为它更加用户友好且稳定。
 
 > 参数值如何获取
 
 ### 方法一：使用哔哩哔哩的嵌入代码（最简单）
+
 打开你所需要使用的视频，找到分享按钮，点击里面的嵌入代码，你可以复制如下代码：
 
 ```html
@@ -112,17 +113,20 @@ app.mount('#app')
 </iframe>
 ```
 
-### 方法二：使用哔哩哔哩API从bvid获取aid
-如果你有 `bvid`（它更加用户友好，可以在视频URL中看到），你可以直接在组件中使用它。但是，如果你需要为其他目的获取 `aid`，可以使用哔哩哔哩API：
+### 方法二：使用哔哩哔哩 API 从 bvid 获取 aid
+
+如果你有 `bvid`（它更加用户友好，可以在视频 URL 中看到），你可以直接在组件中使用它。但是，如果你需要为其他目的获取 `aid`，可以使用哔哩哔哩 API：
 
 **API 接口：** `https://api.bilibili.com/x/web-interface/view?bvid={BVID}`
 
 **示例：**
+
 ```
 https://api.bilibili.com/x/web-interface/view?bvid=BV1YRuDeKEZg
 ```
 
-该API返回包含 `aid` 的视频信息。响应结构如下：
+该 API 返回包含 `aid` 的视频信息。响应结构如下：
+
 ```json
 {
   "code": 0,
@@ -130,15 +134,16 @@ https://api.bilibili.com/x/web-interface/view?bvid=BV1YRuDeKEZg
   "data": {
     "bvid": "BV1YRuDeKEZg",
     "aid": 112478086563329,
-    "title": "...",
+    "title": "..."
     // ... 其他视频数据
   }
 }
 ```
 
 **注意：** 推荐使用 `bvid` 而不是 `aid`，因为：
+
 - 它更加稳定且不会改变
-- 它可以在视频URL中看到（例如：`https://www.bilibili.com/video/BV1YRuDeKEZg`）
+- 它可以在视频 URL 中看到（例如：`https://www.bilibili.com/video/BV1YRuDeKEZg`）
 - 它更加用户友好
 
 ## License
