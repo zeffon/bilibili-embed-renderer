@@ -1,7 +1,7 @@
-import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 import copy from 'rollup-plugin-copy'
+import { defineConfig } from 'vite'
 
 export default defineConfig({
   plugins: [

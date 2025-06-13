@@ -1,8 +1,19 @@
-import { App } from 'vue'
+import type { App } from 'vue'
 import BilibiliEmbedRenderer from './core.vue'
 
-BilibiliEmbedRenderer.install = (app: App) => {
-  app.component('bilibili-embed-renderer', BilibiliEmbedRenderer)
+// Plugin install function
+const install = (app: App): void => {
+  app.component('BilibiliEmbedRenderer', BilibiliEmbedRenderer)
 }
 
-export default BilibiliEmbedRenderer
+// Export types
+export type { BilibiliEmbedRendererProps } from './core.vue'
+
+// Export component
+export { BilibiliEmbedRenderer }
+
+// Export plugin
+export default {
+  install,
+  BilibiliEmbedRenderer
+}
