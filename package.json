@@ -43,7 +43,7 @@
       "prettier --write --cache --ignore-unknown"
     ]
   },
-  "packageManager": "pnpm@^10.2.0",
+  "packageManager": "pnpm@10.2.0",
   "pnpm": {
     "overrides": {
       "react-bilibili-embed-renderer": "workspace:*",
