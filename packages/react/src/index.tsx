@@ -1,7 +1,8 @@
 import * as React from 'react'
 import { calcHeight, isBrowser } from './helper'
 
-interface BilibiliProp extends Omit<React.IframeHTMLAttributes<HTMLIFrameElement>, 'src' | 'width' | 'height'> {
+interface BilibiliProp
+  extends Omit<React.IframeHTMLAttributes<HTMLIFrameElement>, 'src' | 'width' | 'height'> {
   aid?: string
   bvid?: string
   page?: number
